@@ -20,30 +20,43 @@ export default class App extends Component {
     name:getNameFromLocalStorage(),
     token:getTokenFromLocalStorage()
   }
+  handleNewUser = () => {
+      this.setState({
+        name:getNameFromLocalStorage(),
+        token:getTokenFromLocalStorage()
+      })
+  }
+  handleLogout = () => {
+      localStorage.clear()
+      this.handleNewUser()
+  }
     render() {
         return (
             <div>
                 <Router>
-                  <Header/>
+                  <Header handleLogout={this.handleLogout}/>
                     <Switch>
                         <Route 
                             path="/" 
                             exact
-                            render={(routerProps) => <LandingPage {...routerProps} />} 
+                            render={(routerProps) => <LandingPage {...routerProps} handleNewUser={this.handleNewUser}/>} 
                         />
                         <PrivateRoute
                             path="/skyview" 
                             exact
+                            token={this.state.token}
                             render={(routerProps) => <SkyPage {...routerProps} />} 
                         />
                         <PrivateRoute
-                            path="/observations/:id" 
+                            path="/observations" 
                             exact
+                            token={this.state.token}
                             render={(routerProps) => <ObservationPage {...routerProps} />} 
                         />
                         <PrivateRoute
                           path="/catalog" 
                           exact
+                          token={this.state.token}
                           render={(routerProps) => <CatalogPage {...routerProps} />} 
                         />
                         <Route 
