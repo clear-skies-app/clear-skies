@@ -20,7 +20,8 @@ export default class SignUp extends Component {
   handlePasswordChange = (e) => {
     this.setState({password:e.target.value})
   }
-  handleSubmit = async () => {
+  handleSubmit = async (e) => {
+    e.preventDefault()
     const user = await signupUser(this.state.name, this.state.email, this.state.password)
     setLocalStorage(user)
     this.props.history.push('/skyview')
@@ -29,7 +30,7 @@ export default class SignUp extends Component {
     render() {
       console.log(this.state);
         return (
-            <Form>
+            <Form onSubmit={this.handleSubmit}>
               <Form.Group controlId="formBasicName">
                  <Form.Label>Name</Form.Label>
                   <Form.Control type="name" placeholder="Enter name" onChange={this.handleNameChange} value={this.state.name} />
