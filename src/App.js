@@ -12,6 +12,8 @@ import CatalogPage from './CatalogPage/CatalogPage.js'
 import AboutDevs from './AboutDevs/AboutDevs.js'
 import PrivateRoute from './Components/PrivateRoute.js';
 import { getNameFromLocalStorage, getTokenFromLocalStorage } from './Utils/local-storage-utils.js'
+import './App.css';
+
 
 export default class App extends Component {
   state={
