@@ -1,5 +1,5 @@
 import { Form, Button } from 'react-bootstrap';
-import { signupUser, loginUser } from '../Utils/api-utils.js';
+import { signupUser } from '../Utils/api-utils.js';
 import { setLocalStorage } from '../Utils/local-storage-utils.js';
 
 
@@ -24,13 +24,15 @@ export default class SignUp extends Component {
     e.preventDefault()
     const user = await signupUser(this.state.name, this.state.email, this.state.password)
     setLocalStorage(user)
-    this.props.history.push('/skyview')
+    this.props.handleNewUser()
+    this.props.props.history.push('/skyview')
   }
 
     render() {
       console.log(this.state);
         return (
             <Form onSubmit={this.handleSubmit}>
+              Sign Up
               <Form.Group controlId="formBasicName">
                  <Form.Label>Name</Form.Label>
                   <Form.Control type="name" placeholder="Enter name" onChange={this.handleNameChange} value={this.state.name} />

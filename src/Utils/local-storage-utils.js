@@ -19,6 +19,10 @@ export function getTokenFromLocalStorage (){
     }
 }
 
+export function getLatLonFromLocalStorage (){
+    
+}
+
 export function setLocalStorage(user){
     localStorage.setItem(USER, JSON.stringify(user))
 }
