@@ -81,24 +81,3 @@ body {
     transform: rotate(360deg);
   }
 }
-.image-gallery-image{
-  height:30em;
-  width: 30em;
-  background-color: black;
-}
-.container{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-}
-.image-gallery-play-button{
-  display: none;
-}
-.image-gallery-svg{
-  color:rgb(211, 211, 211);
-}
-.image-gallery{
-  width:80%;
-}
-
-
