@@ -1,13 +1,6 @@
 import React, { Component } from 'react'
 import { getApod } from '../Utils/api-utils'
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import SwiperCore, { A11y, Navigation, Pagination, Scrollbar } from 'swiper';
-// import 'swiper/swiper.scss';
-// import 'swiper/components/navigation/navigation.scss';
-// import 'swiper/components/pagination/pagination.scss';
-// import 'swiper/components/scrollbar/scrollbar.scss';
-// import '../App.css'
-// SwiperCore.use([Navigation, Pagination, Scrollbar,A11y]);
+import './LandingPage.css';
 import ImageGallery from 'react-image-gallery';
 
 export default class CarouselComp extends Component {

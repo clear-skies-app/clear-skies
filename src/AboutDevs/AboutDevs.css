@@ -1,14 +1,3 @@
-html {
-    padding: 0;
-    margin: 0;
-    background-color: black;
-  }
-  body, #root, .app, .about-container {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      position: absolute;
-  }
   .orbit-container {
       padding: 0;
       position: relative;
@@ -62,7 +51,6 @@ html {
 }
 
 .cam-body {
-    z-index: 8;
     top: 0%;
     left: 65%;
     width: 10%;
@@ -71,7 +59,6 @@ html {
 }
 
 .lori-body {
-    z-index: 8;
     top: 70%;
     left: 85%;
     width: 14%;
@@ -80,7 +67,6 @@ html {
 }
 
 .juli-body {
-    z-index: 8;
     top: 87%;
     left: 20%;
     width: 20%;
@@ -89,7 +75,6 @@ html {
 }
 
 .jake-body {
-    z-index: 8;
     top: 85%;
     left: 35%;
     width: 30%;
@@ -98,8 +83,8 @@ html {
 }
 
   .about-intro {
-      text-align: center;
-    color: rgb(204, 0, 255);
+    text-align: center;
+    color: rgb(255, 255, 255);
     position: fixed;
     width: 20em;
     height: 40em;
@@ -110,7 +95,7 @@ html {
   }
 
   .about-info {
-    color: rgb(204, 0, 255);
+    color: rgb(0, 217, 255);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -123,7 +108,6 @@ html {
     position: absolute;
     top: 43%;
     left: 42%;
-    z-index: 6;
     box-shadow:
     0 0 10px 5px rgba(251, 255, 0, 0.541),  /* inner white */
     0 0 10px 6px rgba(255, 217, 0, 0.452), /* middle magenta */
@@ -134,7 +118,6 @@ html {
 .about-info-text {
     font-size: 1em;
     width: 20em;
-    z-index: 7;
 }
 
   .orbit-body {

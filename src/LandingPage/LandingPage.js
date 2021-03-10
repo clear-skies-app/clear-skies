@@ -3,7 +3,7 @@ import SignUp from '../AuthPages/SignUp.js';
 import Login from '../AuthPages/Login.js';
 import { Tabs, Tab } from 'react-bootstrap';
 import './LandingPage.css';
-import CarouselComp from '../Components/CarouselComp.js';
+import CarouselComp from './CarouselComp.js';
 export default class LandingPage extends Component {
 	render() {
 		return (
@@ -11,7 +11,7 @@ export default class LandingPage extends Component {
 				<section className='carousel'>
 					<CarouselComp />
 				</section>
-				<section className='tips'>
+				<content className='tips styled-container'>
 					<h1>Tips for Stargazing</h1>
 					<ol>
 						<li>
@@ -24,7 +24,7 @@ export default class LandingPage extends Component {
 							need and also avoids the issue of having to look up
 							something on your device once you’re out in the
 							dark. (You can use Clear Skies to help plan your
-							next adventure! &#128513;)
+							next adventure! <p>&#128513;</p>
 						</li>
 						<li>
 							Allow your eyes to become fully dark-adapted once
@@ -114,7 +114,7 @@ export default class LandingPage extends Component {
 							</a>
 						</li>
 					</ul>
-				</section>
+				</content>
 				<aside className='sideBar'>
 					<Tabs
 						defaultActiveKey='login'
