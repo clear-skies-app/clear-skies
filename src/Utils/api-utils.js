@@ -18,3 +18,10 @@ export async function loginUser(email, password) {
         
     return response.body
 }
+
+export async function getApod(){
+    const response = await request
+        .get(`${URL}/apod`)
+
+    return response.body
+}
