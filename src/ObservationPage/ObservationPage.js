@@ -12,13 +12,19 @@ export default class ObservationPage extends Component {
         //local storage util here to get observation list!
         await this.fetchLookUpData()
     }
+
     fetchLookUpData = async () => {
-        let lookUpArray = [];
-        for (const name of this.state.observationList) {
-            const observationObject = await getLookUp(name, this.props.token)
-            lookUpArray.push(observationObject)
-        }
-        this.setState({observationObjectList: lookUpArray})
+        let lookUpArray = this.state.observationList.map(observation => getLookUp(observation, this.props.token))
+        console.log(lookUpArray)
+        Promise.all(lookUpArray).then((values) => {
+            this.setState({observationObjectList: values})
+        })
+        // let lookUpArray = [];
+        // for (const name of this.state.observationList) {
+        //     const observationObject = await getLookUp(name, this.props.token)
+        //     lookUpArray.push(observationObject)
+        // }
+        // this.setState({observationObjectList: lookUpArray})
     }
     render() {
         return (
