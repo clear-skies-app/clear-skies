@@ -24,6 +24,9 @@ export default class SkyPage extends Component {
 	};
 
 	componentDidMount = async () => {
+		let objArray = [];
+		objArray = getObjArray() || [];
+		setObjArrayLocalStorage(objArray);
 		await this.fetchObjArray();
 	};
 
