@@ -9,9 +9,9 @@ export default class LandingPage extends Component {
 		return (
 			<main className='landingPage grid-container'>
 				<section className='carousel'>
-                    <CarouselComp/>
-                </section>
-				<content className='tips'>
+					<CarouselComp />
+				</section>
+				<section className='tips'>
 					<h1>Tips for Stargazing</h1>
 					<ol>
 						<li>
@@ -114,7 +114,7 @@ export default class LandingPage extends Component {
 							</a>
 						</li>
 					</ul>
-				</content>
+				</section>
 				<aside className='sideBar'>
 					<Tabs
 						defaultActiveKey='login'
