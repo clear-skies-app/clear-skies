@@ -3,11 +3,14 @@ import SignUp from '../AuthPages/SignUp.js';
 import Login from '../AuthPages/Login.js';
 import { Tabs, Tab } from 'react-bootstrap';
 import './LandingPage.css';
+import CarouselComp from '../Components/CarouselComp.js';
 export default class LandingPage extends Component {
 	render() {
 		return (
 			<main className='landingPage grid-container'>
-				<section className='carousel'>Carousel main section</section>
+				<section className='carousel'>
+                    <CarouselComp/>
+                </section>
 				<content className='tips'>
 				<h1>Tips for Stargazing</h1>
 				<ol>

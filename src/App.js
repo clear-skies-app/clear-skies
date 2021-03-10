@@ -13,7 +13,7 @@ import AboutDevs from './AboutDevs/AboutDevs.js'
 import PrivateRoute from './Components/PrivateRoute.js';
 import { getNameFromLocalStorage, getTokenFromLocalStorage } from './Utils/local-storage-utils.js'
 import './App.css';
-import CarouselComp from './Components/CarouselComp.js';
+
 
 
 export default class App extends Component {
@@ -41,11 +41,6 @@ export default class App extends Component {
                             path="/" 
                             exact
                             render={(routerProps) => <LandingPage {...routerProps} handleNewUser={this.handleNewUser}/>} 
-                        />
-                        <Route 
-                            path="/carousel" 
-                            exact
-                            render={(routerProps) => <CarouselComp {...routerProps}/>} 
                         />
                         <PrivateRoute
                             path="/skyview" 
