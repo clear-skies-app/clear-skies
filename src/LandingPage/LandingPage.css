@@ -1,0 +1,26 @@
+.grid-container {
+	display: grid;
+	margin: 5px;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(6, 1fr);
+	gap: 5px 5px;
+	grid-template-areas:
+		'sideBar carousel carousel carousel carousel carousel'
+		'sideBar carousel carousel carousel carousel carousel'
+		'sideBar carousel carousel carousel carousel carousel'
+		'sideBar tips tips tips tips tips'
+		'sideBar tips tips tips tips tips'
+		'sideBar tips tips tips tips tips';
+}
+
+.sideBar {
+	grid-area: sideBar;
+}
+
+.carousel {
+	grid-area: carousel;
+}
+
+.tips {
+	grid-area: tips;
+}
