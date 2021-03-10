@@ -24,9 +24,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-body, html{
-  background-color: rgb(46, 52, 74);
-}
+
 .App-link {
   color: #61dafb;
 }
@@ -45,8 +43,6 @@ body, html{
   background-color: black;
 }
 .container{
-  width:70%;
-  height:100vh;
   display:flex;
   justify-content: center;
   align-items: center;
@@ -54,3 +50,11 @@ body, html{
 .image-gallery-play-button{
   display: none;
 }
+.image-gallery-svg{
+  color:rgb(211, 211, 211);
+}
+.image-gallery{
+  width:80%;
+}
+
+
