@@ -1,3 +1,47 @@
+html {
+  min-height: 100vh;
+  max-height: 100vh;
+}
+.styled-container, form{
+  text-align: center;
+  padding: 0.5em;
+  color: white;
+  background-color:rgba(65, 65, 65, 0.89);
+  border-radius: 10px;
+}
+
+.nav-link :hover{
+  background-color: #333;
+  border-bottom: 3px blue solid;
+}
+.nav-link{
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+form {
+  border-top-left-radius: 0;
+}
+
+li {
+  text-align: left;
+}
+.nav-tabs {
+  border: none
+}
+form label{
+  color: white;
+}
+body {
+  /* background-image: url('6031e7e2cf662.image.png');
+  background-size: cover;
+  background-repeat: no-repeat; */
+  background: url('bg-image.png') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 @import "~react-image-gallery/styles/css/image-gallery.css";
 .App {
   text-align: center;

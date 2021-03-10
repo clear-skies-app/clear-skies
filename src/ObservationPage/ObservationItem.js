@@ -23,7 +23,7 @@ export default class ObservationItem extends Component {
                             <FormControl as="textarea" aria-label="With textarea" onChange={this.handleObservationChange}/>
                         </Form.Group>
                         <Button variant="primary" type="submit">
-                            Submit
+                            Complete Observation
                         </Button>
                     </Form>
                 </Card.Body>

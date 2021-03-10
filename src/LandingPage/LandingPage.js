@@ -11,7 +11,7 @@ export default class LandingPage extends Component {
 				<section className='carousel'>
                     <CarouselComp/>
                 </section>
-				<content className='tips'>
+				<content className='tips styled-container'>
 				<h1>Tips for Stargazing</h1>
 				<ol>
 					<li>Choose a clear, (mostly) moon-less night to go out and find a location away from city lights.</li>
