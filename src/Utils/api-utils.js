@@ -25,3 +25,11 @@ export async function getApod(){
 
     return response.body
 }
+
+export async function getLookUp(name, token){
+    const response = await request
+        .get(`${URL}/api/lookup?objName=${name}`)
+        .set('Authorization', token)
+
+    return response.body
+}
