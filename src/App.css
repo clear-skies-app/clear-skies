@@ -1,3 +1,4 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
 .App {
   text-align: center;
 }
@@ -23,7 +24,9 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+body, html{
+  background-color: rgb(46, 52, 74);
+}
 .App-link {
   color: #61dafb;
 }
@@ -35,4 +38,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+.image-gallery-image{
+  height:30em;
+  width: 30em;
+  background-color: black;
+}
+.container{
+  width:70%;
+  height:100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-gallery-play-button{
+  display: none;
 }
