@@ -39,21 +39,5 @@ export default class CarouselComp extends Component {
         )
     }
 }
+          
 
-        //   <Swiper
-        //     // spaceBetween={20}
-        //     slidesPerView={1}
-        //     navigation
-        //     pagination={{ clickable: true }}
-        //     scrollbar={{ draggable: true }}
-        //     onSlideChange={() => console.log('slide change')}
-        //     onSwiper={(swiper) => console.log(swiper)}
-        //     className="swiper"
-        // >
-        //     {this.state.data.map(item=>
-        //       <SwiperSlide>
-        //         <img src={item.url} alt="nasa_apod" style={apodImage}/>
-        //       </SwiperSlide>
-        //     )} 
-
-        // </Swiper>               
