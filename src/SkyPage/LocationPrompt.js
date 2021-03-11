@@ -2,19 +2,26 @@ import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { cityToCoords } from '../Utils/api-utils.js';
 import { setCoordsInLocalStorage } from '../Utils/local-storage-utils.js';
+// import TipsModal from './TipsModal.js';
 
 export default class LocationPrompt extends Component {
 	state = {
 		city: '',
 		coords: '',
+		// showModal: true,
 	};
+
 	handleLocationSubmit = async (e) => {
 		e.preventDefault();
-
-		const coords = await cityToCoords(this.state.city, this.props.token);
-		await this.setState({ coords });
-		setCoordsInLocalStorage(coords);
-		this.setCookies();
+		try {
+			const coords = await cityToCoords(this.state.city, this.props.token);
+			await this.setState({ coords });
+			setCoordsInLocalStorage(coords);
+			this.setCookies();
+			
+		} catch (error) {
+			this.setState({error:'Please enter a city'})
+		}
 	};
 
 	setCookies = () => {
@@ -24,19 +31,25 @@ export default class LocationPrompt extends Component {
 	};
 
 	handleCityChange = (e) => {
-		this.setState({ city: e.target.value });
+			this.setState({ city: e.target.value });			
 	};
+			
 
 	render() {
 		const {
 			props: { name },
-			state: { city },
+			state: {
+				city,
+				// showModal
+			},
 		} = this;
 
 		return (
+			<>
 			<Form onSubmit={this.handleLocationSubmit}>
 				<Form.Group controlId='locationInput'>
 					<Form.Label>
+						{this.state.error && <p style={{color:'red'}}>{this.state.error}</p>}
 						Welcome, {name}! Enter your city to get started.
 					</Form.Label>
 					<Form.Control
@@ -46,8 +59,9 @@ export default class LocationPrompt extends Component {
 						onChange={this.handleCityChange}
 					/>
 				</Form.Group>
-				<Button type='submit'>Go Explore!</Button>
+				<Button type='submit' disabled={!city}>Go Explore!</Button>
 			</Form>
+			</>
 		);
 	}
 }
