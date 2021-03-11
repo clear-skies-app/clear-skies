@@ -2,14 +2,16 @@ import React, { Component } from 'react'
 import ObservationItem from './ObservationItem.js'
 import { getLookUp } from '../Utils/api-utils'
 import './ObservationPage.css'
+import { getObjArray } from '../Utils/local-storage-utils.js'
 
 export default class ObservationPage extends Component {
     state = {
-        observationList: ['mars', 'mirach', 'mirfak', 'jupiter', 'neptune'], // remove dummy data later
+        observationList: [], 
         observationObjectList: []
     }
     componentDidMount = async () => {
-        //local storage util here to get observation list!
+        const observationList = getObjArray()
+        await this.setState({observationList})
         await this.fetchLookUpData()
     }
 
@@ -29,7 +31,7 @@ export default class ObservationPage extends Component {
     render() {
         return (
             <div className = 'observation-list'>
-                {this.state.observationObjectList.map(observationObject => <ObservationItem image={observationObject.image} name={observationObject.name} ra={observationObject.ra || 'N/A'} dec={observationObject.dec || 'N/A'}/>)}
+                {this.state.observationObjectList.map(observationObject => <ObservationItem image={observationObject.image} props={this.props} name={observationObject.name} ra={observationObject.ra || 'N/A'} dec={observationObject.dec || 'N/A'}/>)}
             </div>
         )
     }
