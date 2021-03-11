@@ -17,7 +17,7 @@ export default class LocationPrompt extends Component {
 			this.setCookies();
 			
 		} catch (error) {
-			alert('enter a valid city')
+			this.setState({error:'Please enter a city'})
 		}
 	};
 
@@ -40,10 +40,10 @@ export default class LocationPrompt extends Component {
 
 		return (
 			<>
-			{this.state.error && <h1 style={{color:'red'}}>{this.state.error}</h1>}
 			<Form onSubmit={this.handleLocationSubmit}>
 				<Form.Group controlId='locationInput'>
 					<Form.Label>
+						{this.state.error && <p style={{color:'red'}}>{this.state.error}</p>}
 						Welcome, {name}! Enter your city to get started.
 					</Form.Label>
 					<Form.Control
@@ -53,7 +53,7 @@ export default class LocationPrompt extends Component {
 						onChange={this.handleCityChange}
 					/>
 				</Form.Group>
-				<Button type='submit'>Go Explore!</Button>
+				<Button type='submit' disabled={!city}>Go Explore!</Button>
 			</Form>
 			</>
 		);
