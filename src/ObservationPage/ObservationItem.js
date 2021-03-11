@@ -17,6 +17,16 @@ export default class ObservationItem extends Component {
                 <Card.Img variant="top" src={this.props.image} />
                 <Card.Body>
                     <Card.Title>{this.props.name}</Card.Title>
+                    <Card.Text>
+                        {
+                            `RA: ${this.props.ra}`
+                        }
+                    </Card.Text>
+                    <Card.Text>
+                        {
+                            `dec: ${this.props.dec}`
+                        }
+                    </Card.Text>
                     <Form onSubmit={this.handleFormSubmit}>
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Observation Notes</Form.Label>
