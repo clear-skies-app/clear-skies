@@ -34,7 +34,7 @@ class App extends Component {
 		return (
 			<div className='app'>
 				<Router>
-					<Header handleLogout={this.handleLogout} />
+					<Header handleLogout={this.handleLogout} name={this.state.name}/>
 					<Switch>
 						<Route
 							path='/'

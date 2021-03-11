@@ -13,12 +13,15 @@ export default class LocationPrompt extends Component {
 
 	handleLocationSubmit = async (e) => {
 		e.preventDefault();
-
-		const coords = await cityToCoords(this.state.city, this.props.token);
-		await this.setState({ coords });
-		setCoordsInLocalStorage(coords);
-		this.setCookies();
-		// this.props.handleModalToggle();
+		try {
+			const coords = await cityToCoords(this.state.city, this.props.token);
+			await this.setState({ coords });
+			setCoordsInLocalStorage(coords);
+			this.setCookies();
+			
+		} catch (error) {
+			this.setState({error:'Please enter a city'})
+		}
 	};
 
 	setCookies = () => {
@@ -28,8 +31,9 @@ export default class LocationPrompt extends Component {
 	};
 
 	handleCityChange = (e) => {
-		this.setState({ city: e.target.value });
+			this.setState({ city: e.target.value });			
 	};
+			
 
 	render() {
 		const {
@@ -42,24 +46,21 @@ export default class LocationPrompt extends Component {
 
 		return (
 			<>
-				<Form onSubmit={this.handleLocationSubmit}>
-					<Form.Group controlId='locationInput'>
-						<Form.Label>
-							Welcome, {name}! Enter your city to get started.
-						</Form.Label>
-						<Form.Control
-							type='text'
-							placeholder='Portland'
-							value={city}
-							onChange={this.handleCityChange}
-						/>
-					</Form.Group>
-					<Button type='submit'>Go Explore!</Button>
-				</Form>
-				{/* <TipsModal
-					showModal={showModal}
-					onHide={() => this.setState({ showModal: false })}
-				/> */}
+			<Form onSubmit={this.handleLocationSubmit}>
+				<Form.Group controlId='locationInput'>
+					<Form.Label>
+						{this.state.error && <p style={{color:'red'}}>{this.state.error}</p>}
+						Welcome, {name}! Enter your city to get started.
+					</Form.Label>
+					<Form.Control
+						type='text'
+						placeholder='Portland'
+						value={city}
+						onChange={this.handleCityChange}
+					/>
+				</Form.Group>
+				<Button type='submit' disabled={!city}>Go Explore!</Button>
+			</Form>
 			</>
 		);
 	}
