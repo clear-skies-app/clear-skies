@@ -1,15 +1,22 @@
 import React, { Component } from 'react'
 import {Card, Button, Form, FormControl} from 'react-bootstrap'
+import { addObservation } from '../Utils/api-utils.js'
 
 export default class ObservationItem extends Component {
     state = {
-        observation: ''
+        notes: ''
     }
-    handleFormSubmit = (e) => {
-        //post request goes here
+    handleFormSubmit = async (e) => {
+        e.preventDefault();
+        const observationObject = {
+            name: this.props.name,
+            image: this.props.image, 
+            notes: this.state.notes,
+        }
+        await addObservation(this.props.props.token, observationObject)
     }
     handleObservationChange = (e) => {
-        this.setState({observation: e.target.value})
+        this.setState({notes: e.target.value})
     }
     render() {
         return (

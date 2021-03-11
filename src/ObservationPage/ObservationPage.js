@@ -31,7 +31,7 @@ export default class ObservationPage extends Component {
     render() {
         return (
             <div className = 'observation-list'>
-                {this.state.observationObjectList.map(observationObject => <ObservationItem image={observationObject.image} name={observationObject.name} ra={observationObject.ra || 'N/A'} dec={observationObject.dec || 'N/A'}/>)}
+                {this.state.observationObjectList.map(observationObject => <ObservationItem image={observationObject.image} props={this.props} name={observationObject.name} ra={observationObject.ra || 'N/A'} dec={observationObject.dec || 'N/A'}/>)}
             </div>
         )
     }

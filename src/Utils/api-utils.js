@@ -47,3 +47,12 @@ export async function getLookUp(name, token) {
 
 	return response.body;
 }
+export async function addObservation(token, observationObject) {
+	const response = await request
+		.post(`${URL}/api/observations`)
+		.set('Authorization', token)
+		.send(observationObject)
+
+	return response.body;
+}
+
