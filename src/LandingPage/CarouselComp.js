@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { getApod } from '../Utils/api-utils'
+import React, { Component } from 'react';
+import { getApod } from '../Utils/api-utils';
 import './LandingPage.css';
 import ImageGallery from 'react-image-gallery';
 
@@ -33,4 +33,3 @@ export default class CarouselComp extends Component {
         )
     }
 }
-          

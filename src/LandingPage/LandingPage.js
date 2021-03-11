@@ -12,7 +12,7 @@ export default class LandingPage extends Component {
 				<section className='carousel'>
 					<CarouselComp />
 				</section>
-				<content className='tips styled-container'>
+				<section className='tips styled-container'>
 					<h1>Tips for Stargazing</h1>
 					<ol>
 						<li>
@@ -115,7 +115,7 @@ export default class LandingPage extends Component {
 							</a>
 						</li>
 					</ul>
-				</content>
+				</section>
 				<aside className='sideBar'>
 					<Tabs
 						defaultActiveKey='login'

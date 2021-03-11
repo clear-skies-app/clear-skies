@@ -39,3 +39,16 @@ export function addObjNameToLSArray(objName) {
 export function setObjArrayLocalStorage(objArray) {
 	localStorage.setItem('OBJOBSRV', JSON.stringify(objArray));
 }
+
+export function setCoordsInLocalStorage(coords) {
+	localStorage.setItem('COORDS', JSON.stringify(coords));
+}
+
+export function getCoordsFromLocalStorage() {
+	const rawLoc = localStorage.getItem('COORDS');
+	try {
+		return JSON.parse(rawLoc);
+	} catch (e) {
+		return '';
+	}
+}

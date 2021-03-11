@@ -1,26 +1,19 @@
 import React, { Component } from 'react';
-import {
-	Form,
-	FormControl,
-	FormLabel,
-	FormGroup,
-	Button,
-	ListGroup,
-	ListGroupItem,
-} from 'react-bootstrap';
+import { Alert, Row, Col, Container } from 'react-bootstrap';
 import {
 	getObjArray,
 	addObjNameToLSArray,
 	setObjArrayLocalStorage,
+	getCoordsFromLocalStorage,
 } from '../Utils/local-storage-utils.js';
-import { cityToCoords } from '../Utils/api-utils.js';
-
+import VirtualSky from './VirtualSky.js';
+import LocationPrompt from './LocationPrompt.js';
+import SideBar from './SideBar.js';
 export default class SkyPage extends Component {
 	state = {
 		objArray: [],
 		objName: '',
-		city: '',
-		coords: '',
+		coords: getCoordsFromLocalStorage(),
 	};
 
 	componentDidMount = async () => {
@@ -45,86 +38,52 @@ export default class SkyPage extends Component {
 
 	handleObjName = (e) => this.setState({ objName: e.target.value });
 
-	handleLocationSubmit = async (e) => {
-		e.preventDefault();
-
-		const coords = await cityToCoords(this.state.city, this.props.token);
-		await this.setState({ coords });
-	};
-
-	handleCityChange = (e) => this.setState({ city: e.target.value });
-
 	handleStartObserve = () => {
 		setObjArrayLocalStorage(this.state.objArray);
 		this.props.history.push('/observations');
 	};
+
 	render() {
-		const virtualSkyURL = `https://virtualsky.lco.global/embed/index.html?longitude=${this.state.coords.lon}&latitude=${this.state.coords.lat}&projection=polar`;
+		const { cookies, name, token } = this.props;
+		const { objArray, objName, coords } = this.state;
 
 		return (
-			<main className='skyViewPage'>
-				{!this.state.coords && (
+			<Container fluid className='skyViewPage'>
+				{!cookies.get('city') ? (
 					<>
-						<section className='locationInput'>
-							<Form onSubmit={this.handleLocationSubmit}>
-								<FormGroup controlId='locationInput'>
-									<FormLabel>
-										Enter your city to get started
-									</FormLabel>
-									<FormControl
-										type='text'
-										placeholder='Portland'
-										value={this.state.city}
-										onChange={this.handleCityChange}
-									/>
-								</FormGroup>
-								<Button type='submit'>Go Explore!</Button>
-							</Form>
-						</section>
+						<Row className='locationInput'>
+							<LocationPrompt
+								cookies={cookies}
+								token={token}
+								name={name}
+							/>
+						</Row>
+					</>
+				) : (
+					<>
+						<Row>
+							<Col md={4} className='sideBar'>
+								<SideBar
+									handleObserveSubmit={
+										this.handleObserveSubmit
+									}
+									objName={objName}
+									handleObjName={this.handleObjName}
+									objArray={objArray}
+									handleStartObserve={this.handleStartObserve}
+								/>
+							</Col>
+							<Col md={8} className='virtualSky'>
+								<Alert variant='dark'>
+									Current view from above{' '}
+									{cookies.get('city')}
+								</Alert>
+								<VirtualSky coords={coords} />
+							</Col>
+						</Row>
 					</>
 				)}
-				{this.state.coords && (
-					<>
-						<section className='virtualSky'>
-							<iframe
-								title='virtualSky'
-								width='500'
-								height='350'
-								frameBorder='0'
-								scrolling='no'
-								marginHeight='0'
-								marginWidth='0'
-								src={virtualSkyURL}
-								allowtransparency='true'></iframe>
-						</section>
-						<section className='userObserveList'>
-							<Form onSubmit={this.handleObserveSubmit}>
-								<FormGroup controlId='observeInput'>
-									<FormLabel>
-										Choose an Object to Observe
-									</FormLabel>
-									<FormControl
-										type='text'
-										placeholder='...Jupiter'
-										value={this.state.objName}
-										onChange={this.handleObjName}
-									/>
-								</FormGroup>
-							</Form>
-							<ListGroup>
-								{this.state.objArray.map((item, i) => (
-									<ListGroupItem key={`${item} + i`}>
-										{item}
-									</ListGroupItem>
-								))}
-							</ListGroup>
-							<Button onClick={this.handleStartObserve}>
-								Start Observation
-							</Button>
-						</section>
-					</>
-				)}
-			</main>
+			</Container>
 		);
 	}
 }
