@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { cityToCoords } from '../Utils/api-utils.js';
 import { setCoordsInLocalStorage } from '../Utils/local-storage-utils.js';
+// import TipsModal from './TipsModal.js';
 
 export default class LocationPrompt extends Component {
 	state = {
 		city: '',
 		coords: '',
+		// showModal: true,
 	};
+
 	handleLocationSubmit = async (e) => {
 		e.preventDefault();
 
@@ -15,6 +18,7 @@ export default class LocationPrompt extends Component {
 		await this.setState({ coords });
 		setCoordsInLocalStorage(coords);
 		this.setCookies();
+		// this.props.handleModalToggle();
 	};
 
 	setCookies = () => {
@@ -30,24 +34,33 @@ export default class LocationPrompt extends Component {
 	render() {
 		const {
 			props: { name },
-			state: { city },
+			state: {
+				city,
+				// showModal
+			},
 		} = this;
 
 		return (
-			<Form onSubmit={this.handleLocationSubmit}>
-				<Form.Group controlId='locationInput'>
-					<Form.Label>
-						Welcome, {name}! Enter your city to get started.
-					</Form.Label>
-					<Form.Control
-						type='text'
-						placeholder='Portland'
-						value={city}
-						onChange={this.handleCityChange}
-					/>
-				</Form.Group>
-				<Button type='submit'>Go Explore!</Button>
-			</Form>
+			<>
+				<Form onSubmit={this.handleLocationSubmit}>
+					<Form.Group controlId='locationInput'>
+						<Form.Label>
+							Welcome, {name}! Enter your city to get started.
+						</Form.Label>
+						<Form.Control
+							type='text'
+							placeholder='Portland'
+							value={city}
+							onChange={this.handleCityChange}
+						/>
+					</Form.Group>
+					<Button type='submit'>Go Explore!</Button>
+				</Form>
+				{/* <TipsModal
+					showModal={showModal}
+					onHide={() => this.setState({ showModal: false })}
+				/> */}
+			</>
 		);
 	}
 }

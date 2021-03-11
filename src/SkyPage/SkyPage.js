@@ -9,11 +9,13 @@ import {
 import VirtualSky from './VirtualSky.js';
 import LocationPrompt from './LocationPrompt.js';
 import SideBar from './SideBar.js';
+import TipsAlert from './TipsModal.js';
 export default class SkyPage extends Component {
 	state = {
 		objArray: [],
 		objName: '',
 		coords: getCoordsFromLocalStorage(),
+		showModal: true,
 	};
 
 	componentDidMount = async () => {
@@ -43,9 +45,13 @@ export default class SkyPage extends Component {
 		this.props.history.push('/observations');
 	};
 
+	handleModalToggle = () => {
+		this.setState({ showModal: !this.state.showModal });
+	};
+
 	render() {
 		const { cookies, name, token } = this.props;
-		const { objArray, objName, coords } = this.state;
+		const { objArray, objName, coords, showModal } = this.state;
 
 		return (
 			<Container fluid className='skyViewPage'>
@@ -71,6 +77,13 @@ export default class SkyPage extends Component {
 									handleObjName={this.handleObjName}
 									objArray={objArray}
 									handleStartObserve={this.handleStartObserve}
+								/>
+								<TipsAlert
+									handleModalToggle={this.handleModalToggle}
+									showModal={showModal}
+									onClick={() =>
+										this.setState({ showModal: true })
+									}
 								/>
 							</Col>
 							<Col md={8} className='virtualSky'>
