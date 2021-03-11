@@ -17,7 +17,7 @@ export default class Header extends Component {
                         <NavDropdown.Item href="/catalog">My Observations</NavDropdown.Item>
                     </NavDropdown>
                     </Nav>
-                    <Button variant="outline-primary" onClick={this.props.handleLogout}>Log out</Button>
+                    {this.props.name && <Button variant="outline-primary" onClick={this.props.handleLogout}>Log out</Button>}
                 </Navbar.Collapse>
             </Navbar>
         )

@@ -10,11 +10,15 @@ export default class LocationPrompt extends Component {
 	};
 	handleLocationSubmit = async (e) => {
 		e.preventDefault();
-
-		const coords = await cityToCoords(this.state.city, this.props.token);
-		await this.setState({ coords });
-		setCoordsInLocalStorage(coords);
-		this.setCookies();
+		try {
+			const coords = await cityToCoords(this.state.city, this.props.token);
+			await this.setState({ coords });
+			setCoordsInLocalStorage(coords);
+			this.setCookies();
+			
+		} catch (error) {
+			alert('enter a valid city')
+		}
 	};
 
 	setCookies = () => {
@@ -24,8 +28,9 @@ export default class LocationPrompt extends Component {
 	};
 
 	handleCityChange = (e) => {
-		this.setState({ city: e.target.value });
+			this.setState({ city: e.target.value });			
 	};
+			
 
 	render() {
 		const {
@@ -34,6 +39,8 @@ export default class LocationPrompt extends Component {
 		} = this;
 
 		return (
+			<>
+			{this.state.error && <h1 style={{color:'red'}}>{this.state.error}</h1>}
 			<Form onSubmit={this.handleLocationSubmit}>
 				<Form.Group controlId='locationInput'>
 					<Form.Label>
@@ -48,6 +55,7 @@ export default class LocationPrompt extends Component {
 				</Form.Group>
 				<Button type='submit'>Go Explore!</Button>
 			</Form>
+			</>
 		);
 	}
 }
