@@ -29,7 +29,7 @@ export async function getObservations(token) {
 		.get(`${URL}/api/observations`)
 		.set('Authorization', token);
 
-	return observations;
+	return observations.body;
 }
 
 export async function cityToCoords(city, token) {
