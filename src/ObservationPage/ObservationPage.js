@@ -7,7 +7,8 @@ import { getObjArray } from '../Utils/local-storage-utils.js'
 export default class ObservationPage extends Component {
     state = {
         observationList: [], 
-        observationObjectList: []
+        observationObjectList: [],
+        observationImageList: []
     }
     componentDidMount = async () => {
         const observationList = getObjArray()

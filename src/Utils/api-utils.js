@@ -44,7 +44,16 @@ export async function getLookUp(name, token) {
 	const response = await request
 		.get(`${URL}/api/lookup?objName=${name}`)
 		.set('Authorization', token);
-
+	if(response.body.category === 'Constellation') {
+		const wikiResponse = await request
+		.get(`http://en.wikipedia.org/w/api.php?action=query&titles=${response.body.name} (constellation)&prop=pageimages&format=json&pithumbsize=500`)
+		response.body.image = wikiResponse.body.query.pages['26932'].thumbnail.source
+	}
+	else {
+		const wikiResponse = await request
+		.get(`http://en.wikipedia.org/w/api.php?action=query&titles=${response.body.name}&prop=pageimages&format=json&pithumbsize=500`)
+		response.body.image = wikiResponse.body.query.pages['26932'].thumbnail.source
+	}
 	return response.body;
 }
 export async function addObservation(token, observationObject) {
