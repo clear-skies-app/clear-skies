@@ -18,7 +18,8 @@ export default class CarouselComp extends Component {
         return {
           original: item.url,
           description:item.copyright,
-          originalTitle:item.explanation
+          originalTitle:item.explanation,
+          thumbnail: item.url,
         }
       })
     }
@@ -33,4 +34,3 @@ export default class CarouselComp extends Component {
     }
 }
           
-
