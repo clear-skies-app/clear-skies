@@ -24,6 +24,7 @@
 
 .tips {
 	grid-area: tips;
+    font-family: moonlight;
 }
 
 /* carousel styling */
