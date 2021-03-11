@@ -9,11 +9,13 @@ import {
 import VirtualSky from './VirtualSky.js';
 import LocationPrompt from './LocationPrompt.js';
 import SideBar from './SideBar.js';
+import TipsModal from './TipsModal.js';
 export default class SkyPage extends Component {
 	state = {
 		objArray: [],
 		objName: '',
 		coords: getCoordsFromLocalStorage(),
+		showModal: false,
 	};
 
 	componentDidMount = async () => {
@@ -56,6 +58,9 @@ export default class SkyPage extends Component {
 								cookies={cookies}
 								token={token}
 								name={name}
+								showModal={() =>
+									this.setState({ showModal: true })
+								}
 							/>
 						</Row>
 					</>
@@ -80,6 +85,7 @@ export default class SkyPage extends Component {
 								</Alert>
 								<VirtualSky coords={coords} />
 							</Col>
+							<TipsModal />
 						</Row>
 					</>
 				)}

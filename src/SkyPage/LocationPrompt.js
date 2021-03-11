@@ -8,6 +8,7 @@ export default class LocationPrompt extends Component {
 		city: '',
 		coords: '',
 	};
+
 	handleLocationSubmit = async (e) => {
 		e.preventDefault();
 
@@ -29,7 +30,7 @@ export default class LocationPrompt extends Component {
 
 	render() {
 		const {
-			props: { name },
+			props: { name, showModal },
 			state: { city },
 		} = this;
 
@@ -46,7 +47,9 @@ export default class LocationPrompt extends Component {
 						onChange={this.handleCityChange}
 					/>
 				</Form.Group>
-				<Button type='submit'>Go Explore!</Button>
+				<Button type='submit' onClick={showModal}>
+					Go Explore!
+				</Button>
 			</Form>
 		);
 	}
