@@ -7,13 +7,14 @@ import ObservationPage from './ObservationPage/ObservationPage.js';
 import CatalogPage from './CatalogPage/CatalogPage.js';
 import AboutDevs from './AboutDevs/AboutDevs.js';
 import PrivateRoute from './Components/PrivateRoute.js';
+import { withCookies } from 'react-cookie';
 import {
 	getNameFromLocalStorage,
 	getTokenFromLocalStorage,
 } from './Utils/local-storage-utils.js';
 import './App.css';
 
-export default class App extends Component {
+class App extends Component {
 	state = {
 		name: getNameFromLocalStorage(),
 		token: getTokenFromLocalStorage(),
@@ -39,8 +40,9 @@ export default class App extends Component {
 							exact
 							render={(routerProps) => (
 								<LandingPage
-									{...routerProps}
+									cookies={this.props.cookies}
 									handleNewUser={this.handleNewUser}
+									{...routerProps}
 								/>
 							)}
 						/>
@@ -49,7 +51,11 @@ export default class App extends Component {
 							exact
 							token={this.state.token}
 							render={(routerProps) => (
-								<SkyPage {...routerProps} />
+								<SkyPage
+									name={this.state.name}
+									cookies={this.props.cookies}
+									{...routerProps}
+								/>
 							)}
 						/>
 						<PrivateRoute
@@ -81,3 +87,5 @@ export default class App extends Component {
 		);
 	}
 }
+
+export default withCookies(App);
