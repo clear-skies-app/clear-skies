@@ -1,10 +1,4 @@
-import {
-	Form,
-	Button,
-	FormGroup,
-	FormLabel,
-	FormControl,
-} from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import { signupUser } from '../Utils/api-utils.js';
 import { setLocalStorage } from '../Utils/local-storage-utils.js';
 
@@ -41,18 +35,18 @@ export default class SignUp extends Component {
 		return (
 			<Form onSubmit={this.handleSubmit}>
 				Sign Up
-				<FormGroup controlId='formBasicName'>
-					<FormLabel>Name</FormLabel>
-					<FormControl
+				<Form.Group controlId='newUserName'>
+					<Form.Label>Name</Form.Label>
+					<Form.Control
 						type='name'
 						placeholder='Enter name'
 						onChange={this.handleNameChange}
 						value={this.state.name}
 					/>
-				</FormGroup>
-				<FormGroup controlId='formBasicEmail'>
-					<FormLabel>Email address</FormLabel>
-					<FormControl
+				</Form.Group>
+				<Form.Group controlId='newUserEmail'>
+					<Form.Label>Email address</Form.Label>
+					<Form.Control
 						type='email'
 						placeholder='Enter email'
 						onChange={this.handleEmailChange}
@@ -61,16 +55,16 @@ export default class SignUp extends Component {
 					<Form.Text className='text-muted'>
 						We'll never share your email with anyone else.
 					</Form.Text>
-				</FormGroup>
-				<FormGroup controlId='formBasicPassword'>
-					<FormLabel>Password</FormLabel>
-					<FormControl
+				</Form.Group>
+				<Form.Group controlId='newUserPassword'>
+					<Form.Label>Password</Form.Label>
+					<Form.Control
 						type='password'
 						placeholder='Password'
 						onChange={this.handlePasswordChange}
 						value={this.state.password}
 					/>
-				</FormGroup>
+				</Form.Group>
 				<Button variant='primary' type='submit'>
 					Submit
 				</Button>

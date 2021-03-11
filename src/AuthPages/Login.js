@@ -33,7 +33,7 @@ export default class SignUp extends Component {
 		return (
 			<Form onSubmit={this.handleSubmit}>
 				Login
-				<FormGroup controlId='formBasicEmail'>
+				<FormGroup controlId='loginEmail'>
 					<FormLabel>Email address</FormLabel>
 					<FormControl
 						type='email'
@@ -45,7 +45,7 @@ export default class SignUp extends Component {
 						We'll never share your email with anyone else.
 					</Form.Text>
 				</FormGroup>
-				<FormGroup controlId='formBasicPassword'>
+				<FormGroup controlId='loginPassword'>
 					<FormLabel>Password</FormLabel>
 					<FormControl
 						type='password'
