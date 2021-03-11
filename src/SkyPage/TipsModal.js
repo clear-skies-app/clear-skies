@@ -1,20 +1,14 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
-import { Modal, Button } from 'react-bootstrap';
+import { Alert, Button } from 'react-bootstrap';
 
-function TipsModal(props) {
-	return (
-		<Modal
-			{...props}
-			size='lg'
-			aria-labelledby='contained-modal-title-vcenter'
-			centered>
-			<Modal.Header closeButton>
-				<Modal.Title id='contained-modal-title-vcenter'>
+function TipsAlert(props) {
+	if (props.showModal) {
+		return (
+			<Alert variant='dark' onClose={props.handleModalToggle} dismissible>
+				<Alert.Heading id='contained-modal-title-vcenter'>
 					Stargazing Tips
-				</Modal.Title>
-			</Modal.Header>
-			<Modal.Body>
+				</Alert.Heading>
 				<ListGroup>
 					<ListGroup.Item>
 						Choose a clear, (mostly) moon-less night to go out and
@@ -52,12 +46,10 @@ function TipsModal(props) {
 						just our human eye. Clear Skies!
 					</ListGroup.Item>
 				</ListGroup>
-			</Modal.Body>
-			<Modal.Footer>
-				<Button onClick={props.onHide}>Close</Button>
-			</Modal.Footer>
-		</Modal>
-	);
+			</Alert>
+		);
+	}
+	return <Button onClick={props.onClick}>Show Tips</Button>;
 }
 
-export default TipsModal;
+export default TipsAlert;
