@@ -10,6 +10,7 @@ import VirtualSky from './VirtualSky.js';
 import LocationPrompt from './LocationPrompt.js';
 import SideBar from './SideBar.js';
 import TipsAlert from './TipsModal.js';
+import './SkyPage.css'
 export default class SkyPage extends Component {
 	state = {
 		objArray: [],
@@ -67,7 +68,7 @@ export default class SkyPage extends Component {
 					</>
 				) : (
 					<>
-						<Row>
+						<Row className='virtual-sky-row'>
 							<Col md={4} className='sideBar'>
 								<SideBar
 									handleObserveSubmit={

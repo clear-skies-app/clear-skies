@@ -1,5 +1,6 @@
 .observation-list {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -9,6 +10,10 @@
     0 0 10px 5px rgba(255, 255, 255, 0.575),  /* inner white */
     0 0 10px 6px rgba(255, 255, 255, 0.452), /* middle magenta */
     0 0 14px 9px rgba(255, 255, 255, 0.507); /* outer cyan */
+}
+
+.card-body button {
+    margin: 10px;
 }
 .card img {
 
