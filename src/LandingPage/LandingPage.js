@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import SignUp from '../AuthPages/SignUp.js';
 import Login from '../AuthPages/Login.js';
-import { Tabs, Tab } from 'react-bootstrap';
+import { Tabs, Tab, Alert, ListGroup } from 'react-bootstrap';
 import './LandingPage.css';
 import CarouselComp from './CarouselComp.js';
-
 
 export default class LandingPage extends Component {
 	render() {
@@ -14,51 +13,59 @@ export default class LandingPage extends Component {
 				<section className='carousel'>
 					<CarouselComp />
 				</section>
-				<section className='tips styled-container'>
-					<p>Welcome to Clear Skies! Please create an account or login to take a look at the Virtual Sky to plan your next stargazing adventure!</p>
-					<h1>Resources</h1>
-					<ul>
-						<li>
+				<Alert variant='dark' className='tips styled-container'>
+					<Alert.Heading>Welcome to Clear Skies!</Alert.Heading>
+					<hr />
+					<p>
+						Please create an account or login to explore your
+						Virtual Sky and plan your next stargazing adventure!
+						Feel free to check out the resources below for more fun
+						astronomy information. Happy Exploring!
+					</p>
+					<Alert.Heading>Astronomy Resources</Alert.Heading>
+					<hr />
+					<ListGroup variant='flush'>
+						<ListGroup.Item variant='dark'>
 							<a
 								href='https://skyandtelescope.org/celestial-objects-observe/'
 								target='_blank'
 								rel='noreferrer'>
 								15 Types of Celestial Objects to Observe
 							</a>
-						</li>
-						<li>
+						</ListGroup.Item>
+						<ListGroup.Item variant='dark'>
 							<a
 								href='https://skyandtelescope.org/astronomy-equipment/how-to-choose-a-telescope/'
 								target='_blank'
 								rel='noreferrer'>
 								How to Choose your First Telescope
 							</a>
-						</li>
-						<li>
+						</ListGroup.Item>
+						<ListGroup.Item variant='dark'>
 							<a
 								href='https://skyandtelescope.org/observing/make-a-star-wheel/'
 								target='_blank'
 								rel='noreferrer'>
 								Guide to Make Your Own Star Wheel
 							</a>
-						</li>
-						<li>
+						</ListGroup.Item>
+						<ListGroup.Item variant='dark'>
 							<a
 								href='https://skyandtelescope.org/astronomy-resources/stargazing-basics/family-projects-and-experiments/'
 								target='_blank'
 								rel='noreferrer'>
 								Family Fun with Sky Watching
 							</a>
-						</li>
-						<li>
+						</ListGroup.Item>
+						<ListGroup.Item variant='dark'>
 							<a
 								href='http://astronomy.tools/'
 								target='_blank'
 								rel='noreferrer'>
 								Astronomy Tools
 							</a>
-						</li>
-						<li>
+						</ListGroup.Item>
+						<ListGroup.Item variant='dark'>
 							<a
 								href='https://skyandtelescope.org/wp-content/uploads/GettingStartedNorth.pdf'
 								target='_blank'
@@ -66,8 +73,8 @@ export default class LandingPage extends Component {
 								Getting Started in Astronomy – Northern
 								Hemisphere
 							</a>
-						</li>
-						<li>
+						</ListGroup.Item>
+						<ListGroup.Item variant='dark'>
 							<a
 								href='https://skyandtelescope.org/wp-content/uploads/GettingStartedSouth.pdf'
 								target='_blank'
@@ -75,9 +82,9 @@ export default class LandingPage extends Component {
 								Getting Started in Astronomy – Southern
 								Hemisphere
 							</a>
-						</li>
-					</ul>
-				</section>
+						</ListGroup.Item>
+					</ListGroup>
+				</Alert>
 				<aside className='sideBar'>
 					<Tabs
 						defaultActiveKey='signup'
