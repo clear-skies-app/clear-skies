@@ -5,7 +5,7 @@ import LandingPage from './LandingPage/LandingPage.js';
 import SkyPage from './SkyPage/SkyPage.js';
 import ObservationPage from './ObservationPage/ObservationPage.js';
 import CatalogPage from './CatalogPage/CatalogPage.js';
-import DetailPage from './DetailPage/DetailPage.js'
+import DetailPage from './DetailPage/DetailPage.js';
 import AboutDevs from './AboutDevs/AboutDevs.js';
 import PrivateRoute from './Components/PrivateRoute.js';
 import { withCookies } from 'react-cookie';
@@ -34,7 +34,10 @@ class App extends Component {
 		return (
 			<div className='app'>
 				<Router>
-					<Header handleLogout={this.handleLogout} name={this.state.name}/>
+					<Header
+						handleLogout={this.handleLogout}
+						name={this.state.name}
+					/>
 					<Switch>
 						<Route
 							path='/'
@@ -75,7 +78,7 @@ class App extends Component {
 								<CatalogPage {...routerProps} />
 							)}
 						/>
-            	<PrivateRoute
+						<PrivateRoute
 							path='/details/:name'
 							exact
 							token={this.state.token}
