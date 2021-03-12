@@ -1,5 +1,5 @@
 import request from 'superagent';
-const URL = 'https://salty-lowlands-47598.herokuapp.com/';
+const URL = 'https://salty-lowlands-47598.herokuapp.com';
 // const URL = 'http://localhost:3000';
 
 export async function signupUser(name, email, password) {
