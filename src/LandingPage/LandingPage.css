@@ -47,3 +47,7 @@
   .image-gallery{
     width:80%;
   }
+
+  .spinner {
+    transform: scale(3);
+  }

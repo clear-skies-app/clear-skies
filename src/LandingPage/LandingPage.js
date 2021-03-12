@@ -5,6 +5,7 @@ import { Tabs, Tab } from 'react-bootstrap';
 import './LandingPage.css';
 import CarouselComp from './CarouselComp.js';
 
+
 export default class LandingPage extends Component {
 	render() {
 		const { cookies, handleNewUser } = this.props;
