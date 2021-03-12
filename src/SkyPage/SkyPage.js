@@ -10,13 +10,13 @@ import VirtualSky from './VirtualSky.js';
 import LocationPrompt from './LocationPrompt.js';
 import SideBar from './SideBar.js';
 import TipsAlert from './TipsModal.js';
-import './SkyPage.css'
+import './SkyPage.css';
 export default class SkyPage extends Component {
 	state = {
 		objArray: [],
 		objName: '',
 		coords: getCoordsFromLocalStorage(),
-		showModal: true,
+		showModal: false,
 	};
 
 	componentDidMount = async () => {
@@ -80,6 +80,7 @@ export default class SkyPage extends Component {
 									handleStartObserve={this.handleStartObserve}
 								/>
 								<TipsAlert
+									className='tipsAlert'
 									handleModalToggle={this.handleModalToggle}
 									showModal={showModal}
 									onClick={() =>

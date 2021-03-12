@@ -75,10 +75,6 @@ hr {
 		0 0 14px 9px rgba(255, 255, 255, 0.507);
 }
 
-.spinner {
-	transform: scale(3);
-}
-
 li > a {
 	text-decoration: underline;
 	color: white;
