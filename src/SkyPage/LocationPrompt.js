@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { cityToCoords } from '../Utils/api-utils.js';
 import { setCoordsInLocalStorage } from '../Utils/local-storage-utils.js';
-// import TipsModal from './TipsModal.js';
 
 export default class LocationPrompt extends Component {
 	state = {
@@ -12,23 +11,21 @@ export default class LocationPrompt extends Component {
 
 	handleLocationSubmit = async (e) => {
 		e.preventDefault();
+		const {
+			props: { cookies, token },
+			state: { city },
+		} = this;
 		try {
-			const coords = await cityToCoords(
-				this.state.city,
-				this.props.token
-			);
+			const coords = await cityToCoords(city, token);
 			await this.setState({ coords });
 			setCoordsInLocalStorage(coords);
-			await this.setCookies();
+			await cookies.set('coords', JSON.stringify(coords), { path: '/' });
+			await cookies.set('city', city, {
+				path: '/',
+			});
 		} catch (error) {
 			this.setState({ error: 'Please enter a city' });
 		}
-	};
-
-	setCookies = () => {
-		this.props.cookies.set('city', `${this.state.city}`, {
-			path: '/',
-		});
 	};
 
 	handleCityChange = (e) => {
