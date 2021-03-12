@@ -55,3 +55,20 @@ export async function addObservation(token, observationObject) {
 	return response.body;
 }
 
+export async function updateObservation(token, name, notes) {
+	const response = await request
+		.put(`${URL}/api/observations/${name}`)
+		.set('Authorization', token)
+		.send({notes})
+
+	return response.body;
+}
+
+export async function deleteObservation(token, name) {
+	const response = await request
+		.delete(`${URL}/api/observations/${name}`)
+		.set('Authorization', token)
+
+	return response.body;
+}
+
