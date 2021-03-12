@@ -8,59 +8,62 @@ export default class LocationPrompt extends Component {
 	state = {
 		city: '',
 		coords: '',
-		// showModal: true,
 	};
 
 	handleLocationSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const coords = await cityToCoords(this.state.city, this.props.token);
+			const coords = await cityToCoords(
+				this.state.city,
+				this.props.token
+			);
 			await this.setState({ coords });
 			setCoordsInLocalStorage(coords);
-			this.setCookies();
-			
+			await this.setCookies();
 		} catch (error) {
-			this.setState({error:'Please enter a city'})
+			this.setState({ error: 'Please enter a city' });
 		}
 	};
 
 	setCookies = () => {
 		this.props.cookies.set('city', `${this.state.city}`, {
-			path: '/skyview',
+			path: '/',
 		});
 	};
 
 	handleCityChange = (e) => {
-			this.setState({ city: e.target.value });			
+		this.setState({ city: e.target.value });
 	};
-			
 
 	render() {
 		const {
 			props: { name },
-			state: {
-				city,
-				// showModal
-			},
+			state: { city },
 		} = this;
 
 		return (
 			<>
-			<Form onSubmit={this.handleLocationSubmit}>
-				<Form.Group controlId='locationInput'>
-					<Form.Label>
-						{this.state.error && <p style={{color:'red'}}>{this.state.error}</p>}
-						Welcome, {name}! Enter your city to get started.
-					</Form.Label>
-					<Form.Control
-						type='text'
-						placeholder='Portland'
-						value={city}
-						onChange={this.handleCityChange}
-					/>
-				</Form.Group>
-				<Button type='submit' disabled={!city}>Go Explore!</Button>
-			</Form>
+				<Form onSubmit={this.handleLocationSubmit}>
+					<Form.Group controlId='locationInput'>
+						<Form.Label>
+							{this.state.error && (
+								<p style={{ color: 'red' }}>
+									{this.state.error}
+								</p>
+							)}
+							Welcome, {name}! Enter your city to get started.
+						</Form.Label>
+						<Form.Control
+							type='text'
+							placeholder='Portland'
+							value={city}
+							onChange={this.handleCityChange}
+						/>
+					</Form.Group>
+					<Button type='submit' disabled={!city}>
+						Go Explore!
+					</Button>
+				</Form>
 			</>
 		);
 	}
