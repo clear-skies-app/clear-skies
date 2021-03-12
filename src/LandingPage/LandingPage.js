@@ -14,47 +14,6 @@ export default class LandingPage extends Component {
 					<CarouselComp />
 				</section>
 				<section className='tips styled-container'>
-					<h1>Tips for Stargazing</h1>
-					<ol>
-						<li>
-							Choose a clear, (mostly) moon-less night to go out
-							and find a location away from city lights.
-						</li>
-						<li>
-							Plan out your observations before heading out. This
-							helps you to prepare any special equipment you may
-							need and also avoids the issue of having to look up
-							something on your device once you’re out in the
-							dark. (You can use Clear Skies to help plan your
-							next adventure! <p>&#128513;</p>
-						</li>
-						<li>
-							Allow your eyes to become fully dark-adapted once
-							you’re on-site. Plan to allow at least 30mins for
-							this and try to avoid looking at any bright lights
-							(phones, flashlights, full moon, etc.), as even a
-							quick glance can break your dark adaptation and
-							you’ll have to restart.
-						</li>
-						<li>
-							Use “Averted Vision”, meaning looking slightly to
-							the side of the object you’re observing. This uses
-							your peripheral vision and helps you detect faint
-							objects that are invisible when you stare directly
-							at them.
-						</li>
-						<li>
-							Pack a blanket, sweater, water, snacks, and a
-							flashlight (just in case) and most importantly, HAVE
-							FUN!
-						</li>
-						<li>
-							Bonus: Remember, you don’t need any fancy equipment
-							to have fun star-gazing and enjoying the awesomeness
-							of our night skies. There is so much available to
-							observe with just our human eye. Clear Skies!
-						</li>
-					</ol>
 					<h1>Resources</h1>
 					<ul>
 						<li>

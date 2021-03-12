@@ -20,20 +20,26 @@ export default class SignUp extends Component {
 		this.setState({ password: e.target.value });
 	};
 	handleSubmit = async (e) => {
-		e.preventDefault();
-		const user = await signupUser(
-			this.state.name,
-			this.state.email,
-			this.state.password
-		);
-		setLocalStorage(user);
-		this.props.handleNewUser();
-		this.props.props.history.push('/skyview');
+        try {
+            e.preventDefault();
+            const user = await signupUser(
+                this.state.name,
+                this.state.email,
+                this.state.password
+            );
+            setLocalStorage(user);
+            this.props.handleNewUser();
+            this.props.props.history.push('/skyview');
+            
+        } catch (error) {
+            this.setState({error: 'Please enter a name, email, and password'})
+        }
 	};
 
 	render() {
 		return (
 			<Form onSubmit={this.handleSubmit}>
+                {this.state.error && <p style={{color:'red'}}>{this.state.error}</p>}
 				Sign Up
 				<Form.Group controlId='newUserName'>
 					<Form.Label>Name</Form.Label>

@@ -9,16 +9,19 @@ export default class ObservationPage extends Component {
     state = {
         loading:true,
         observationList: [], 
-        observationObjectList: []
+        observationObjectList: [],
+        observationImageList: []
     }
     componentDidMount = async () => {
-        // await this.setState({loading: true});
+        await this.fetchObservationList()
+    }
+    fetchObservationList = async () => {
+        console.log("I AM RUNNING!!!!!!")
         const observationList = getObjArray()
         await this.setState({observationList})
         await this.fetchLookUpData()
-        // await this.setState({loading: false});
+        
     }
-
     fetchLookUpData = async () => {
         await this.setState({loading: true});
         let lookUpArray = this.state.observationList.map(observation => getLookUp(observation, this.props.token))
@@ -44,11 +47,10 @@ export default class ObservationPage extends Component {
                  <Spinner animation="grow" variant="primary" /> 
                  <Spinner animation="grow" size="sm" variant="primary" /> 
                 </div> :  
-                <div className = 'observation-list'>
-                {this.state.observationObjectList.map(observationObject => <ObservationItem image={observationObject.image} props={this.props} name={observationObject.name} ra={observationObject.ra || 'N/A'} dec={observationObject.dec || 'N/A'}/>)}
-                </div>}
-            </div>
-           
+                 <div className = 'observation-list'>
+                 {this.state.observationObjectList.map((observationObject, i) => <ObservationItem key={`${i}${observationObject.name}`}updateObservations={this.fetchObservationList} image={observationObject.image} props={this.props} name={observationObject.name} ra={observationObject.ra || 'N/A'} dec={observationObject.dec || 'N/A'}/>)}
+             </div> }
+             </div>   
         )
     }
 }

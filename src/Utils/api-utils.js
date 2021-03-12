@@ -1,6 +1,5 @@
 import request from 'superagent';
 const URL = 'https://salty-lowlands-47598.herokuapp.com';
-// const URL = 'http://localhost:3000';
 
 export async function signupUser(name, email, password) {
 	const response = await request
@@ -52,6 +51,23 @@ export async function addObservation(token, observationObject) {
 		.post(`${URL}/api/observations`)
 		.set('Authorization', token)
 		.send(observationObject)
+
+	return response.body;
+}
+
+export async function updateObservation(token, name, notes) {
+	const response = await request
+		.put(`${URL}/api/observations/${name}`)
+		.set('Authorization', token)
+		.send({notes})
+
+	return response.body;
+}
+
+export async function deleteObservation(token, name) {
+	const response = await request
+		.delete(`${URL}/api/observations/${name}`)
+		.set('Authorization', token)
 
 	return response.body;
 }
