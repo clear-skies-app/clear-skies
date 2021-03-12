@@ -39,7 +39,7 @@ export function addObjNameToLSArray(objName) {
 export function removeObjNameFromLSArray(objName) {
 	let objArray = [];
 	objArray = getObjArray() || [];
-	const newArray = objArray.filter(name => name !== objName)
+	const newArray = objArray.filter(name => name.toUpperCase() !== objName.toUpperCase())
 	localStorage.setItem('OBJOBSRV', JSON.stringify(newArray));
 }
 

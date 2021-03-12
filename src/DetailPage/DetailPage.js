@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { getLookUp, updateObservation, getObservations, deleteObservation } from '../Utils/api-utils'
 import {Card, Button, Alert, Form} from 'react-bootstrap'
+import Spinner from 'react-bootstrap/Spinner';
 
 export default class DetailPage extends Component {
     state={
@@ -8,11 +9,14 @@ export default class DetailPage extends Component {
         notes: '',
         objectDetails:{},
         showEdit: false,
+        loading: false
     };
     componentDidMount=async()=>{
+        this.setState({loading: true})
        await this.fetchLookUp()
        await this.fetchObservations()
        this.setState({notes: this.state.observation.notes})
+       this.setState({loading: false})
     }
     fetchObservations = async () => {
         const observedObjects = await getObservations(this.props.token);
@@ -39,6 +43,15 @@ export default class DetailPage extends Component {
     }
     render() {
         return (
+            <div className="container"> { 
+                this.state.loading ? 
+                <div className='spinner'>
+                 <Spinner animation="grow" size="sm" variant="primary" /> 
+                 <Spinner animation="grow" variant="primary" /> 
+                 <Spinner animation="grow" size="sm" variant="primary" /> 
+                 <Spinner animation="grow" variant="primary" /> 
+                 <Spinner animation="grow" size="sm" variant="primary" /> 
+                </div> :  
             <Card style={{ width: '40rem' }}>
                 <Card.Img variant="top" src={this.state.objectDetails.image} />
                 <Card.Body>
@@ -74,6 +87,8 @@ export default class DetailPage extends Component {
                     <Button onClick={this.handleDeleteObservation} variant="primary">Delete Observation</Button>
                 </Card.Body>
             </Card>
+            }
+            </div> 
         )
     }
 }

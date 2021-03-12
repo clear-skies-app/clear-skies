@@ -8,6 +8,7 @@ import CarouselComp from './CarouselComp.js';
 
 export default class LandingPage extends Component {
 	render() {
+		const { cookies, handleNewUser } = this.props;
 		return (
 			<main className='landingPage grid-container'>
 				<section className='carousel'>
@@ -83,14 +84,16 @@ export default class LandingPage extends Component {
 						id='userAuth'>
 						<Tab eventKey='login' title='Current User'>
 							<Login
+								cookies={cookies}
 								props={this.props}
-								handleNewUser={this.props.handleNewUser}
+								handleNewUser={handleNewUser}
 							/>
 						</Tab>
 						<Tab eventKey='signup' title='New Users'>
 							<SignUp
+								cookies={cookies}
 								props={this.props}
-								handleNewUser={this.props.handleNewUser}
+								handleNewUser={handleNewUser}
 							/>
 						</Tab>
 					</Tabs>
