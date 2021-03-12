@@ -13,7 +13,7 @@ export default class Header extends Component {
                     <Nav.Link href="/about">About Devs</Nav.Link>
                     <NavDropdown title="Menu" id="basic-nav-dropdown">
                         <NavDropdown.Item href="/skyview">Sky View</NavDropdown.Item>
-                        <NavDropdown.Item href="/observations">Observations</NavDropdown.Item>
+                        <NavDropdown.Item href="/observations">Observation Session</NavDropdown.Item>
                         <NavDropdown.Item href="/catalog">My Observations</NavDropdown.Item>
                     </NavDropdown>
                     </Nav>

@@ -1,6 +1,7 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
 .grid-container {
 	display: grid;
+  justify-items: center;
 	margin: 5px;
 	grid-template-columns: repeat(6, 1fr);
 	grid-template-rows: repeat(6, 1fr);
@@ -23,10 +24,10 @@
 }
 
 .tips {
+  max-width: 45vw;
 	grid-area: tips;
     font-family: moonlight;
 }
-
 /* carousel styling */
 .image-gallery-image{
     height:30em;

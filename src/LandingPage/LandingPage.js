@@ -15,6 +15,7 @@ export default class LandingPage extends Component {
 					<CarouselComp />
 				</section>
 				<section className='tips styled-container'>
+					<p>Welcome to Clear Skies! Please create an account or login to take a look at the Virtual Sky to plan your next stargazing adventure!</p>
 					<h1>Resources</h1>
 					<ul>
 						<li>
@@ -79,18 +80,18 @@ export default class LandingPage extends Component {
 				</section>
 				<aside className='sideBar'>
 					<Tabs
-						defaultActiveKey='login'
+						defaultActiveKey='signup'
 						transition={false}
 						id='userAuth'>
-						<Tab eventKey='login' title='Current User'>
-							<Login
+						<Tab eventKey='signup' title='New Users'>
+							<SignUp
 								cookies={cookies}
 								props={this.props}
 								handleNewUser={handleNewUser}
 							/>
 						</Tab>
-						<Tab eventKey='signup' title='New Users'>
-							<SignUp
+						<Tab eventKey='login' title='Current User'>
+							<Login
 								cookies={cookies}
 								props={this.props}
 								handleNewUser={handleNewUser}
