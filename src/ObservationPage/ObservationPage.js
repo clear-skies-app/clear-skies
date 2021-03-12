@@ -33,7 +33,7 @@ export default class ObservationPage extends Component {
 	};
 	render() {
 		return (
-			<div className='observation-container'>
+			<div className='container'>
 				{this.state.loading ? (
 					<div className='spinner'>
 						<Spinner animation='grow' size='sm' variant='primary' />
