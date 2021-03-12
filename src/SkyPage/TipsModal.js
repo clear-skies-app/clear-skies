@@ -18,7 +18,7 @@ function TipsAlert(props) {
 						Plan out your observations before heading out. This
 						helps you to prepare any special equipment you may need
 						and also avoids the issue of having to look up something
-						on your device once you’re out in the dark. (You can use
+						on your device once you’re out in the dark. You can use
 						Clear Skies to help plan your next adventure! &#128513;
 					</ListGroup.Item>
 					<ListGroup.Item>

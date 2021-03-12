@@ -52,7 +52,7 @@ export default class LocationPrompt extends Component {
 						</Form.Label>
 						<Form.Control
 							type='text'
-							placeholder='Portland'
+							placeholder='Enter your city'
 							value={city}
 							onChange={this.handleCityChange}
 						/>

@@ -1,7 +1,7 @@
-@import "~react-image-gallery/styles/css/image-gallery.css";
+@import '~react-image-gallery/styles/css/image-gallery.css';
 .grid-container {
 	display: grid;
-  justify-items: center;
+	justify-items: center;
 	margin: 5px;
 	grid-template-columns: repeat(6, 1fr);
 	grid-template-rows: repeat(6, 1fr);
@@ -24,31 +24,62 @@
 }
 
 .tips {
-  max-width: 45vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 45vw;
+	height: fit-content;
 	grid-area: tips;
-    font-family: moonlight;
+	font-family: moonlight;
 }
-/* carousel styling */
-.image-gallery-image{
-    height:30em;
-    width: 30em;
-    background-color: black;
-  }
-  .container{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .image-gallery-play-button{
-    display: none;
-  }
-  .image-gallery-svg{
-    color:rgb(211, 211, 211);
-  }
-  .image-gallery{
-    width:80%;
-  }
 
-  .spinner {
-    transform: scale(3);
-  }
+hr {
+	margin: 5px;
+	height: 1px;
+	color: white;
+}
+
+.tips > h1 {
+	font-size: 2rem;
+}
+
+.tips > p {
+	margin: 5px;
+}
+
+/* carousel styling */
+.image-gallery-image {
+	height: 30em;
+	width: 30em;
+	background-color: black;
+}
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.image-gallery-play-button {
+	display: none;
+}
+.image-gallery-svg {
+	color: rgb(211, 211, 211);
+}
+.image-gallery {
+	width: 80%;
+}
+.image-gallery-slides {
+	border-radius: 10px;
+	box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.575),
+		0 0 10px 6px rgba(255, 255, 255, 0.452),
+		0 0 14px 9px rgba(255, 255, 255, 0.507);
+}
+
+.spinner {
+	transform: scale(3);
+}
+
+li > a {
+	text-decoration: underline;
+	color: white;
+}
