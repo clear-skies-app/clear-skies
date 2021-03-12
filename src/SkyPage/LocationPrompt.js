@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { cityToCoords } from '../Utils/api-utils.js';
 import { setCoordsInLocalStorage } from '../Utils/local-storage-utils.js';
+// import TipsModal from './TipsModal.js';
 
 export default class LocationPrompt extends Component {
 	state = {
 		city: '',
 		coords: '',
+		// showModal: true,
 	};
+
 	handleLocationSubmit = async (e) => {
 		e.preventDefault();
 		try {
@@ -35,7 +38,10 @@ export default class LocationPrompt extends Component {
 	render() {
 		const {
 			props: { name },
-			state: { city },
+			state: {
+				city,
+				// showModal
+			},
 		} = this;
 
 		return (

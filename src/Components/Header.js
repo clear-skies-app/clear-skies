@@ -5,7 +5,7 @@ export default class Header extends Component {
     render() {
         return (
             <Navbar variant="dark" expand="lg">
-                <Navbar.Brand href="#home" style={{fontSize:'1.3em'}}>Clear Skies</Navbar.Brand>
+                <Navbar.Brand href="/" style={{fontSize:'1.3em'}}>Clear Skies</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
