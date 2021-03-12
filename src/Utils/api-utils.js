@@ -1,5 +1,6 @@
 import request from 'superagent';
-const URL = 'https://salty-lowlands-47598.herokuapp.com';
+// const URL = 'https://salty-lowlands-47598.herokuapp.com';
+const URL = 'http://localhost:3000'
 
 export async function signupUser(name, email, password) {
 	const response = await request
@@ -43,16 +44,7 @@ export async function getLookUp(name, token) {
 	const response = await request
 		.get(`${URL}/api/lookup?objName=${name}`)
 		.set('Authorization', token);
-	if(response.body.category === 'Constellation') {
-		const wikiResponse = await request
-		.get(`http://en.wikipedia.org/w/api.php?action=query&titles=${response.body.name} (constellation)&prop=pageimages&format=json&pithumbsize=500`)
-		response.body.image = wikiResponse.body.query.pages['26932'].thumbnail.source
-	}
-	else {
-		const wikiResponse = await request
-		.get(`http://en.wikipedia.org/w/api.php?action=query&titles=${response.body.name}&prop=pageimages&format=json&pithumbsize=500`)
-		response.body.image = wikiResponse.body.query.pages['26932'].thumbnail.source
-	}
+
 	return response.body;
 }
 export async function addObservation(token, observationObject) {
@@ -60,6 +52,23 @@ export async function addObservation(token, observationObject) {
 		.post(`${URL}/api/observations`)
 		.set('Authorization', token)
 		.send(observationObject)
+
+	return response.body;
+}
+
+export async function updateObservation(token, name, notes) {
+	const response = await request
+		.put(`${URL}/api/observations/${name}`)
+		.set('Authorization', token)
+		.send({notes})
+
+	return response.body;
+}
+
+export async function deleteObservation(token, name) {
+	const response = await request
+		.delete(`${URL}/api/observations/${name}`)
+		.set('Authorization', token)
 
 	return response.body;
 }

@@ -10,3 +10,9 @@
     0 0 10px 6px rgba(255, 255, 255, 0.452), /* middle magenta */
     0 0 14px 9px rgba(255, 255, 255, 0.507); /* outer cyan */
 }
+.card img {
+
+    width:  100%;
+    object-fit: cover;
+
+}

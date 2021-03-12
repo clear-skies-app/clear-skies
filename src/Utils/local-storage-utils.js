@@ -36,6 +36,13 @@ export function addObjNameToLSArray(objName) {
 	localStorage.setItem('OBJOBSRV', JSON.stringify(objArray));
 }
 
+export function removeObjNameFromLSArray(objName) {
+	let objArray = [];
+	objArray = getObjArray() || [];
+	const newArray = objArray.filter(name => name !== objName)
+	localStorage.setItem('OBJOBSRV', JSON.stringify(newArray));
+}
+
 export function setObjArrayLocalStorage(objArray) {
 	localStorage.setItem('OBJOBSRV', JSON.stringify(objArray));
 }

@@ -11,11 +11,15 @@ export default class ObservationPage extends Component {
         observationImageList: []
     }
     componentDidMount = async () => {
+        await this.fetchObservationList()
+    }
+    fetchObservationList = async () => {
+        console.log("I AM RUNNING!!!!!!")
         const observationList = getObjArray()
         await this.setState({observationList})
         await this.fetchLookUpData()
+        
     }
-
     fetchLookUpData = async () => {
         let lookUpArray = this.state.observationList.map(observation => getLookUp(observation, this.props.token))
         console.log(lookUpArray)
@@ -32,7 +36,7 @@ export default class ObservationPage extends Component {
     render() {
         return (
             <div className = 'observation-list'>
-                {this.state.observationObjectList.map(observationObject => <ObservationItem image={observationObject.image} props={this.props} name={observationObject.name} ra={observationObject.ra || 'N/A'} dec={observationObject.dec || 'N/A'}/>)}
+                {this.state.observationObjectList.map((observationObject, i) => <ObservationItem key={`${i}${observationObject.name}`}updateObservations={this.fetchObservationList} image={observationObject.image} props={this.props} name={observationObject.name} ra={observationObject.ra || 'N/A'} dec={observationObject.dec || 'N/A'}/>)}
             </div>
         )
     }

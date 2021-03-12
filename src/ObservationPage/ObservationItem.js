@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Card, Button, Form, FormControl} from 'react-bootstrap'
 import { addObservation } from '../Utils/api-utils.js'
+import { removeObjNameFromLSArray } from '../Utils/local-storage-utils.js'
 
 export default class ObservationItem extends Component {
     state = {
@@ -14,6 +15,8 @@ export default class ObservationItem extends Component {
             notes: this.state.notes,
         }
         await addObservation(this.props.props.token, observationObject)
+        removeObjNameFromLSArray(this.props.name) 
+        this.props.updateObservations()
     }
     handleObservationChange = (e) => {
         this.setState({notes: e.target.value})
