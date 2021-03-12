@@ -22,6 +22,10 @@ export default class AboutDevs extends Component {
 				"Lori is a software developer who loves coding, hiking, dogs, and a steady rotation of Carl Sagan's Cosmos and Star Trek Next Gen.",
 			juli:
 				'Juli is a neurodivergent software developer with a passion for coding and astronomy. Her favorite astronomy experience was viewing the Andromeda Galaxy with her own eyes!',
+			jake:
+				'Jake Thrasher is a software engineer in Portland, OR. When he’s not developing software he enjoys making music, cooking, and good coffee.',
+			cameron:
+				'Cameron Zimmerman is a Software engineer from Silverdale, WA. Cameron hopes to better himself every day with exercise, code, and music.',
 		};
 
 		return (
@@ -40,7 +44,7 @@ export default class AboutDevs extends Component {
 						bodyClass='cam-body'
 						handleShowInfo={this.handleShowInfo}
 						handleHideInfo={this.handleHideInfo}
-						text='lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem'
+						text={devBios.cameron}
 						name='Cameron'
 					/>
 
@@ -67,7 +71,7 @@ export default class AboutDevs extends Component {
 						bodyClass='jake-body'
 						handleShowInfo={this.handleShowInfo}
 						handleHideInfo={this.handleHideInfo}
-						text='lorem ipsum'
+						text={devBios.jake}
 						name='Jake'
 					/>
 				</div>
