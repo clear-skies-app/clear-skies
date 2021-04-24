@@ -23,6 +23,7 @@ export default class ObservationItem extends Component {
     }
     render() {
         return (
+            // nice use of react-bootstrap here!
             <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={this.props.image} />
                 <Card.Body>

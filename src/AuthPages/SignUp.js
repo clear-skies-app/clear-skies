@@ -29,10 +29,12 @@ export default class SignUp extends Component {
 				this.state.password
 			);
 
+			// curious what's going on with these cookies. Was there no other way to get this data?
 			cookies.remove('coords');
 			cookies.remove('city');
 			setLocalStorage(user);
 			this.props.handleNewUser();
+			// if you used {...props} in the parent, you would just get direct access to the props
 			this.props.props.history.push('/skyview');
 		} catch (error) {
 			this.setState({

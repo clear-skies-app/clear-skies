@@ -17,6 +17,7 @@ import './App.css';
 
 class App extends Component {
 	state = {
+		// nice utils!
 		name: getNameFromLocalStorage(),
 		token: getTokenFromLocalStorage(),
 	};
@@ -100,4 +101,5 @@ class App extends Component {
 	}
 }
 
+// interested to see what this research process looked like!
 export default withCookies(App);

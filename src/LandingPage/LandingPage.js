@@ -11,6 +11,7 @@ export default class LandingPage extends Component {
 		return (
 			<main className='landingPage grid-container'>
 				<section className='carousel'>
+					{/* good idea, abstracting this into its own component even though it taks no props */}
 					<CarouselComp />
 				</section>
 				<Alert variant='dark' className='tips styled-container'>
@@ -86,6 +87,7 @@ export default class LandingPage extends Component {
 					</ListGroup>
 				</Alert>
 				<aside className='sideBar'>
+					{/* loving this use of Tabs! */}
 					<Tabs
 						defaultActiveKey='signup'
 						transition={false}

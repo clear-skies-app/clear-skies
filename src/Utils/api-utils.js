@@ -1,5 +1,5 @@
 import request from 'superagent';
-const URL = 'https://salty-lowlands-47598.herokuapp.com';
+const URL = 'https://salty-lowlands-47598.herokuapp.com'; // might make sense to put this in an environment variable so you could have multipe environments (dev, QE, and production back end, for example)
 
 export async function signupUser(name, email, password) {
 	const response = await request
@@ -41,6 +41,7 @@ export async function cityToCoords(city, token) {
 
 export async function getLookUp(name, token) {
 	const response = await request
+	// objName is kind of a weird property to have to grok
 		.get(`${URL}/api/lookup?objName=${name}`)
 		.set('Authorization', token);
 

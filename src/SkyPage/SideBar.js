@@ -5,6 +5,7 @@ export default class SideBar extends Component {
 	render() {
 		const {
 			handleObserveSubmit,
+			// not sure I would this objName stuff if I were maintaining this codebase. Is there a clearer name?
 			objName,
 			handleObjName,
 			objArray,
@@ -40,7 +41,8 @@ export default class SideBar extends Component {
 				</Form>
 				<ListGroup>
 					{objArray.map((item, i) => (
-						<ListGroup.Item key={`${item} + i`}>
+						// this i isn't doing anything without the ${}
+						<ListGroup.Item key={`${item} + ${i}`}> 
 							{item}
 						</ListGroup.Item>
 					))}
