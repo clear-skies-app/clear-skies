@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-
+// cool component! 
 export default class VirtualSky extends Component {
 	render() {
 		const { coords } = this.props;
-
+		
 		const virtualSkyURL = `https://virtualsky.lco.global/embed/index.html?longitude=${coords.lon}&latitude=${coords.lat}&projection=stereo&constellations=true&constellationlabels=true&showstarlabels=true&live=true&az=243.5`;
 		return (
 			<iframe

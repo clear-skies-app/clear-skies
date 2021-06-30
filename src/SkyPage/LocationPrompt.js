@@ -12,6 +12,7 @@ export default class LocationPrompt extends Component {
 	handleLocationSubmit = async (e) => {
 		e.preventDefault();
 		const {
+			// sick destructuring!
 			props: { cookies, token },
 			state: { city },
 		} = this;
@@ -44,6 +45,7 @@ export default class LocationPrompt extends Component {
 					<Form.Group controlId='locationInput'>
 						<Form.Label>
 							{this.state.error && (
+								// might like to see this living in CSS with the rest of your styles
 								<p style={{ color: 'red' }}>
 									{this.state.error}
 								</p>

@@ -29,6 +29,7 @@ export default class Login extends Component {
 			e.preventDefault();
 			const user = await loginUser(this.state.email, this.state.password);
 
+			// very cool!
 			const coordsCookie = cookies.get('coords');
 			console.log(coordsCookie);
 			setCoordsInLocalStorage(coordsCookie);

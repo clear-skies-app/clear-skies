@@ -25,6 +25,7 @@ export function setLocalStorage(user) {
 
 export function getObjArray() {
 	let nameArray = [];
+	// seems like OBJOBSRV (and to a lesser degree, COORDS) should be a const, since it's pretty hard to remember
 	nameArray = JSON.parse(localStorage.getItem('OBJOBSRV'));
 	return nameArray;
 }

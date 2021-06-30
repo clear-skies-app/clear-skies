@@ -36,6 +36,7 @@ export default class CarouselComp extends Component {
           <div className="container"> { 
             this.state.loading ? 
             <div className='spinner'>
+              {/* might be nice to have a <Spinners /> component, since you use this exact code in DetailPage.js */}
              <Spinner animation="grow" size="sm" variant="primary" /> 
              <Spinner animation="grow" variant="primary" /> 
              <Spinner animation="grow" size="sm" variant="primary" /> 

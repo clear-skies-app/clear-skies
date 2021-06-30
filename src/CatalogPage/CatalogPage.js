@@ -7,14 +7,19 @@ export default class CatalogPage extends Component {
         observedCatalog:[]
     }
     componentDidMount= async()=>{
-        const observedObjects = await getObservations(this.props.token);
+        const observedCatalog = await getObservations(this.props.token);
 
-        this.setState({observedCatalog:observedObjects});
+        this.setState({ observedCatalog });
     }
     render() {
         return (
             <div>
-                {this.state.observedCatalog.map(observationObject => <CatalogItem image={observationObject.image} props={this.props} name={observationObject.name}/> )}
+                {this.state.observedCatalog.map(observationObject => 
+                    <CatalogItem 
+                        image={observationObject.image} 
+                        props={this.props} 
+                        // {...props} is more conventional here to pass all props
+                        name={observationObject.name}/> )}
             </div>
         )
     }

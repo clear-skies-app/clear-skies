@@ -16,19 +16,23 @@ export default class ObservationPage extends Component {
 		await this.fetchObservationList();
 	};
 	fetchObservationList = async () => {
-		console.log('I AM RUNNING!!!!!!');
 		const observationList = getObjArray();
+		// nice use of the key/value redundancy trick
 		await this.setState({ observationList });
 		await this.fetchLookUpData();
 	};
 	fetchLookUpData = async () => {
 		await this.setState({ loading: true });
-		let lookUpArray = this.state.observationList.map((observation) =>
+		// unless we're _reassigning_ the variable, const works and lets you mutate the array
+		const lookUpArray = this.state.observationList.map((observation) =>
 			getLookUp(observation, this.props.token)
 		);
 		console.log(lookUpArray);
 		Promise.all(lookUpArray).then((values) => {
-			this.setState({ observationObjectList: values, loading: false });
+			this.setState({ 
+				observationObjectList: values, 
+				loading: false,
+			});
 		});
 	};
 	render() {
@@ -53,7 +57,9 @@ export default class ObservationPage extends Component {
 									}
 									image={observationObject.image}
 									props={this.props}
+									// {...props} is a more common way to pass all props down to child components
 									name={observationObject.name}
+									// nice fallbackin'!
 									ra={observationObject.ra || 'N/A'}
 									dec={observationObject.dec || 'N/A'}
 								/>
