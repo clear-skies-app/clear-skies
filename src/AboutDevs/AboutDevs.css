@@ -1,0 +1,161 @@
+.orbit-container {
+	padding: 0;
+	position: relative;
+	width: 40vw;
+	height: 40vw;
+}
+section {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	height: 100vh;
+	align-items: center;
+}
+.orbit {
+	position: absolute;
+	border: 2px #4a437f dashed;
+	border-radius: 50%;
+}
+.cam-orbit {
+	top: 0;
+	left: 0;
+	width: 95%;
+	height: 95%;
+	-webkit-animation: spin-right 25s linear infinite;
+	animation: spin-right 25s linear infinite;
+}
+.lori-orbit {
+	top: 12%;
+	left: 12%;
+	width: 70%;
+	height: 70%;
+	-webkit-animation: spin-right 20s linear infinite;
+	animation: spin-right 20s linear infinite;
+}
+.juli-orbit {
+	top: 22%;
+	left: 22%;
+	width: 50%;
+	height: 50%;
+	-webkit-animation: spin-right 15s linear infinite;
+	animation: spin-right 15s linear infinite;
+}
+.jake-orbit {
+	top: 32%;
+	left: 32%;
+	width: 30%;
+	height: 30%;
+	-webkit-animation: spin-right 10s linear infinite;
+	animation: spin-right 10s linear infinite;
+}
+
+.cam-body {
+	top: 0%;
+	left: 65%;
+	width: 10%;
+	height: 10%;
+	background-image: url('https://avatars.githubusercontent.com/u/73862042?s=460&u=46b78f7ee816eeeaf5360b072e3f2782fc9282c9&v=4');
+}
+
+.lori-body {
+	top: 70%;
+	left: 85%;
+	width: 14%;
+	height: 14%;
+	background-image: url('https://avatars.githubusercontent.com/u/74270598?s=460&u=edd2480c5e4a9276ac7064a7271637e0e630aa8a&v=4');
+}
+
+.juli-body {
+	top: 87%;
+	left: 20%;
+	width: 20%;
+	height: 20%;
+	background-image: url('https://avatars.githubusercontent.com/u/75726146?s=460&u=ca1865f6c71177223cf7ce9be9f2127800ef1c61&v=4');
+}
+
+.jake-body {
+	top: 85%;
+	left: 35%;
+	width: 30%;
+	height: 30%;
+	background-image: url('https://avatars.githubusercontent.com/u/71306796?s=460&u=dff9fc66a52764940e8a6194a50113d99a110d89&v=4');
+}
+
+.center-star {
+	background-color: yellow;
+	border-radius: 100%;
+	width: 10%;
+	height: 10%;
+	position: absolute;
+	top: 43%;
+	left: 42%;
+	box-shadow: 0 0 10px 5px rgba(251, 255, 0, 0.541),
+		/* inner white */ 0 0 10px 6px rgba(255, 217, 0, 0.452),
+		/* middle magenta */ 0 0 14px 9px rgba(255, 255, 255, 0.507); /* outer cyan */
+}
+
+.about-info-container {
+	display: flex;
+	flex-direction: row;
+	width: fit-content;
+	height: fit-content;
+	justify-content: center;
+}
+
+.about-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 25em;
+	height: fit-content;
+	margin: 10px;
+	margin-bottom: 20px;
+	padding: 5px;
+	font-size: 1em;
+	text-align: center;
+	color: white;
+	background-color: hsla(247, 31%, 38%, 0.9);
+	border-radius: 10px;
+}
+
+.orbit-body {
+	position: absolute;
+	border-radius: 100%;
+	background-size: cover;
+	box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.253),
+		/* inner white */ 0 0 10px 6px rgba(255, 0, 255, 0.205),
+		/* middle magenta */ 0 0 14px 9px rgba(0, 255, 255, 0.247); /* outer cyan */
+}
+.orbit :hover {
+	cursor: pointer;
+}
+
+@-webkit-keyframes spin-right {
+	from {
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@keyframes spin-right {
+	from {
+		-ms-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}

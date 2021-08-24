@@ -1,70 +1,46 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# UNDER CONSTRUCTION DUE TO DEPRECATED API
+# Clear Skies [![Netlify Status](https://api.netlify.com/api/v1/badges/c26e5fed-ce3b-470e-b3e4-90f7a043fda6/deploy-status)](https://app.netlify.com/sites/clear-skies/deploys)
 
-## Available Scripts
+[Clear Skies App](https://clear-skies.netlify.app/) | [Backend Repo](https://github.com/foundations2-final/clear-skies-back-end)
 
-In the project directory, you can run:
+# Description
+Clear Skies is an app designed by amateur astronomers eager to help other budding astronomers explore the vast expanse of our universe. We strive to make the app as user-friendly as possible and provide useful tips throughout to help guide new astronomers on their star-gazing adventures.
 
-### `npm start`
+The name of our app was inspired by the colloquial sign-off amongst the astronomy community. By saying "Clear Skies" you are wishing for the other astronomers to have a clear view of the skies when they go out stargazing.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Visitors can browse various high-definition photos from NASA's Astronomy Picture of the Day, create their own account to plan their own star-gazing adventure, store their personal observations to their own catalog to keep track of their progress, and even get a personalized virtual sky map displayed for their location.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# External APIs
+We used several different APIs throughout our app to help generate unique, informative, and picturesque content for the most immersive experience. The APIs that we've utilized are listed below:
 
-### `npm test`
+-   [NASA APOD](https://apod.nasa.gov/apod/astropix.html)
+-   [LocationIQ](https://locationiq.com/)
+-   [lookUP](https://www.strudel.org.uk/lookUP/)
+-   [VirtualSky](https://virtualsky.lco.global/)
+-   [WikiMedia](https://api.wikimedia.org/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Technologies Used
+- React
+    - React Bootstrap 
+    - react-cookies
+    - react-image-gallery
+- Node + Express
+- JavaScript
+- HTML5/CSS3
+- PostgreSQL
+- Heroku/Netlify
 
-### `npm run build`
+# The Team Behind Clear Skies
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-   Julianne Vela
+    -   [GitHub](https://www.github.com/julianne-vela) | [LinkedIn](https://www.linkedin.com/in/juliannevela/) | [Porfolio](https://www.juliannevela.dev) (in-progress) | [Twitter](https://www.twitter.com/NessimaSkye)
+-   Cameron Zimmerman
+    -   [GitHub](https://github.com/CameronZimmerman) | [LinkedIn](https://www.linkedin.com/in/cameron-zimmerman/) | [Twitter](https://twitter.com/CameronZimmer20)
+-   Lori Winston
+    -   [GitHub](https://github.com/LoriWinston) | [LinkedIn](https://www.linkedin.com/in/loriwinston/) | [Twitter](https://twitter.com/LoriWinston8)
+-   Jake Thrasher
+    -   [GitHub](https://github.com/jakethrasher) | [LinkedIn](https://www.linkedin.com/in/m-jake-thrasher/) | [Twitter](https://twitter.com/mjakethrasher)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# License
+#### Copyright (c) 2021 _**Julianne Vela,**_ _**Jake Thrasher,**_ _**Lori Winston,**_ _**Cameron Zimmerman**_ 

@@ -1,38 +1,74 @@
-.App {
-  text-align: center;
+@font-face {
+	font-family: astrospace;
+	src: url('./Assets/AstroSpace-0Wl3o.otf') format('opentype');
+}
+@font-face {
+	font-family: moonbold;
+	src: url('./Assets/MoonBold.otf') format('opentype');
+}
+@font-face {
+	font-family: moonlight;
+	src: url('./Assets/MoonLight.otf') format('opentype');
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,
+body,
+#root {
+	min-height: 100vh;
+	max-height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.styled-container,
+form {
+	text-align: center;
+	padding: 0.5em;
+	color: white;
+	background-color: rgba(65, 65, 65, 0.89);
+	border-radius: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.nav-link:hover {
+	border-bottom: 3px #007bff solid;
+}
+.nav-link {
+	border: none;
+	transition: all 0.2s ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+.spinner {
+	transform: scale(3);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form {
+	border-top-left-radius: 0;
+}
+
+li {
+	text-align: left;
+}
+
+.nav-tabs {
+	border: none;
+}
+
+form label {
+	color: white;
+}
+
+body {
+	background: url('./Assets/bg-image.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.navbar {
+	margin-bottom: 1.5em;
+}
+
+.navbar,
+.navbar-brand {
+	font-family: astrospace;
+	font-size: 1.3rem;
 }
